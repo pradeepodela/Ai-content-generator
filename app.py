@@ -1,4 +1,4 @@
-from cmd import PROMPT
+
 from flask import Flask, render_template, request
 import config
 from nltk.corpus import stopwords
