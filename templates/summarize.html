@@ -1,0 +1,43 @@
+{% extends 'includes/layout.html' %}
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1> 🐦 summarize Article 🐦 ️</h1>
+    <p class="lead">
+    Start summarize the articles.
+    </p>
+
+    <h2>Enter the article link?</h2>
+
+    <form class="" action="/summarize" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">Link Prompt</label>
+        <input  height="80px" required type="text" class="form-control" name="Article-Link" placeholder="eg. https://towardsdatascience.com/a-bayesian-take-on-model-regularization-9356116b6457">
+        <div class="form-text">Enter the Link of the article link.</div>
+      </div>
+
+      <div class="slidecontainer">
+        <p>Seed range slider:</p>
+        <input type="range" name="seed" min="0.00" max="2.00" >
+        </div>
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 summarize</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- <h3 class="text-primary">{{prompt}}</h3> -->
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

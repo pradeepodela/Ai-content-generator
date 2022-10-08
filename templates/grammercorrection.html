@@ -1,0 +1,39 @@
+{% extends 'includes/layout.html' %}
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1> 🐦 Transulate Text 🐦 ️</h1>
+    <p class="lead">
+    Start Transulate the Text.
+    </p>
+
+    <h2>Enter the Text?</h2>
+
+    <form class="" action="/grammer" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">Link Prompt</label>
+        <input required type="text" style="height:200px;"  class="form-control" name="text" >
+        <div class="form-text">Enter the Link of the article to transulate.</div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 Correct</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary">{{prompt}}</h3>
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

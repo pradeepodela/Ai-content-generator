@@ -1,0 +1,57 @@
+{% extends 'includes/layout.html' %}
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1> 🐦 social media add generatior  🐦 ️</h1>
+    <p class="lead">
+    Start Generate  the add.
+    </p>
+
+    <h2>Enter the your product/service description ?</h2>
+
+    <form class="" action="/salesadd" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">Product/service description</label>
+        <input required type="text" style="height:200px;"  class="form-control" name="productDescription" >
+        <div class="form-text">Enter the Link of the descritpion.</div>
+      </div>
+      <div class="slidecontainer">
+        <p>select the platform:</p>
+        <select class="form-control" id="platform" name="platform">
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Twitter">Twitter</option>
+            <option value="Linkedin">Linkedin</option>
+            <option value="Pinterest">Pinterest</option>
+            <option value="Youtube">Youtube</option>
+            <option value="Tiktok">Tiktok</option>
+            <option value="Snapchat">Snapchat</option>
+            <option value="Reddit">Reddit</option>
+            <option value="Quora">Quora</option>
+            <option value="Medium">Medium</option>
+            <option value="google">Google</option>
+        </select>
+    </div>
+    <br><br>
+
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 Genrate</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary">{{prompt}}</h3>
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

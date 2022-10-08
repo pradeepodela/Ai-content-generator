@@ -1,0 +1,68 @@
+{% extends 'includes/layout.html' %}
+
+
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1>🛍️ Generate Product Descriptions 🛍 ️</h1>
+    <p class="lead">
+      Generate product descriptions for any types of products, simply enter the name and productdescription to get started.
+    </p>
+
+    <h2>Enter the details of your product</h2>
+
+    <form class="" action="/product-description" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">Product Title</label>
+        <input type="text" class="form-control" name="productname" placeholder="eg. Apple iPhone">
+
+
+        <label class="form-label">product genral Description</label>
+        <input type="text" class="form-control" name="productDescription" placeholder="eg. new renued version of Apple iPhone (write the genral description)">
+
+        <label class="form-label">productFeatures</label>
+        <input type="text" class="form-control" name="productFeatures" placeholder="eg. 48mpa camara , high battry life">
+
+        <label class="form-label">product Benefits</label>
+        <input type="text" class="form-control" name="productBenefits" placeholder="eg. privecy">
+
+        <label class="form-label">tone of the description</label>
+        <input type="text" class="form-control" name="tone" placeholder="eg. Luexry ,   happy , anagary etc">
+
+        <label class="form-label">product type</label>
+        <input type="text" class="form-control" name="productType" placeholder="eg. phone , laptop , watch etc">
+
+        <label class="form-label">product brand</label>
+        <input type="text" class="form-control" name="productBrand" placeholder="eg. Apple , Samsung , Google etc">
+
+        <label class="form-label">product price</label>
+        <input type="text" class="form-control" name="seedword" placeholder="eg. the next big thing , the god of smartphones  , royal Looking etc">
+
+
+
+
+
+
+        <div class="form-text">Enter the title of the Product you would like to receive a description for.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 GET RECOMMENDATIONS</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary"></h3>
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

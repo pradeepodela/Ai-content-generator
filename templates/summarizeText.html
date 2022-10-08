@@ -1,0 +1,43 @@
+{% extends 'includes/layout.html' %}
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1> 🐦 summarize Article 🐦 ️</h1>
+    <p class="lead">
+    Start summarize the articles.
+    </p>
+
+    <h2>Enter the article link?</h2>
+
+    <form class="" action="/summarizeText" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">Text Prompt</label>
+        <input required type="text" style="height:200px; " class="form-control" name="Text" >
+        <div class="form-text">Enter the Text to summaryze.</div>
+      </div>
+
+      <div class="slidecontainer">
+        <p>Seed range slider:</p>
+        <input type="range" name="seed" min="0.00" max="2.00" >
+        </div>
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 summarize</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary">{{prompt}}</h3>
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

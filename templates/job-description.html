@@ -1,0 +1,67 @@
+{% extends 'includes/layout.html' %}
+
+
+
+
+{% block body %}
+<main class="container">
+  <div class="bg-light p-5 rounded mt-5">
+    <h1> 🖥️ Generate Job Descriptions 🖥️ ️</h1>
+    <p class="lead">
+      Are you trying to come up with professional sounding job descriptions but have hit a writers block? Let AI help you along.
+    </p>
+
+    <h2>Enter the details of your job</h2>
+
+    <form class="" action="/job-description" method="post">
+
+      <div class="mb-3">
+        <label class="form-label">your name</label>
+        <input type="text" class="form-control" name="name" placeholder="eg. pradeep">
+        <label class="form-label">jobDescription</label>
+        <input type="text" class="form-control" name="jobDescription" placeholder="eg. DataScientest">
+        <label class="form-label">experince</label>
+        
+        <input type="text" class="form-control" name="experince" placeholder="eg. 5years">
+        <label class="form-label">projects</label>
+        <input type="text" class="form-control" name="projects" placeholder="eg. Accused detection , customer churn modeling , helemet detection">
+        <label class="form-label">skills</label>
+        <input type="text" class="form-control" name="skills" placeholder="eg. datamaniuplation , data visualization , creating models ">
+        <label class="form-label">tools</label>
+        <input type="text" class="form-control" name="tools" placeholder="eg. python , tensorflow , pytorch">
+        <label class="form-label">education</label>
+        <input type="text" class="form-control" name="education" placeholder="eg. Btech , Mtech , Phd">
+        <label class="form-label">certifications</label>
+        <input type="text" class="form-control" name="certification" placeholder="eg. AWS , GCP , Azure">
+        <label class="form-label">past coumpany</label>
+        <input type="text" class="form-control" name="company" placeholder="eg. Google , Microsoft , Amazon">
+        <label class="form-label">Location</label>
+        <input type="text" class="form-control" name="location" placeholder="eg. Bangalore , Hyderabad , Mumbai">
+        <label class="form-label">Key points</label>
+        <input type="text" class="form-control" name="keypoints" placeholder="eg. highly motivated , self thought , Active problem solver">
+
+
+        
+
+
+
+
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg"> 💃 GET RECOMMENDATIONS</button>
+
+    </form>
+  </div>
+
+
+  <div class="p-3 rounded">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="text-primary">{{prompt}}</h3>
+        <p class="lead">{{openAIAnswer}}</p>
+
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
