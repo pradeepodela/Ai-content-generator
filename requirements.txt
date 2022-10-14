@@ -2,7 +2,7 @@ flask
 nltk
 bs4
 requests
-re
+regex
 googletrans==3.1.0a0
 openai==0.23.1
 gunicorn==20.0.4
