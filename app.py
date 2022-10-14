@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 import config
 from nltk.corpus import stopwords
@@ -9,7 +8,8 @@ import re
 from googletrans import Translator
 import openai
 import blog
-openai.api_key = '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'
+import config
+openai.api_key = config.OPENAI_API_KEY
 
 
 translator = Translator()
@@ -17,7 +17,7 @@ translator = Translator()
 def summarizer(url,seed=1.2):
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
-    results = soup.find_all(['h1', 'p'])
+    results = soup.find_all([ 'p'])
     text = [result.text for result in results]
     ARTICLE = ' '.join(text)
 
@@ -167,7 +167,7 @@ def openai_quray(pompt):
     response = openai.Completion.create(model="text-davinci-002",
     prompt=pompt,
     temperature=0.7,
-    max_tokens=750,
+    max_tokens=950,
     top_p=1.0,
     frequency_penalty=0.0,
     presence_penalty=0.0
@@ -528,6 +528,36 @@ def Linkedinposts():
                 print('for the result ...')
         
             return render_template('Linkedin.html', **locals())
+@app.route('/Speach', methods=["GET", "POST"])
+def Speach():
+                
+                if request.method == 'POST':
+                    query = request.form['Text']
+                    print('requesting.......')
+                    pmpt = f''' Write a high level  speech on:{query} . 
+                    '''
+                    openAIAnswer = openai_quray(pmpt)
+                    
+                    print(openAIAnswer)
+    
+                    print('for the result ...')
+            
+                return render_template('Speach.html', **locals())
+@app.route('/Bussiness-plan', methods=["GET", "POST"])
+def BussinessPlan():
+                        
+                        if request.method == 'POST':
+                            query = request.form['Text']
+                            print('requesting.......')
+                            pmpt = f''' Write a high level  business plan for:{query} . 
+                            '''
+                            openAIAnswer = openai_quray(pmpt)
+                            
+                            print(openAIAnswer)
+            
+                            print('for the result ...')
+                    
+                        return render_template('Bussiness-plan.html', **locals())
 
 
 
