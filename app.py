@@ -164,7 +164,7 @@ def openai_grammer(text):
 
 
 def openai_quray(pompt):
-    response = openai.Completion.create(model="text-davinci-002",
+    response = openai.Completion.create(model="text-davinci-003",
     prompt=pompt,
     temperature=0.7,
     max_tokens=950,
