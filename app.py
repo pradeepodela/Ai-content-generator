@@ -8,6 +8,7 @@ import re
 from googletrans import Translator
 import openai
 import blog
+from emailpy import *
 import config
 openai.api_key = config.OPENAI_API_KEY
 
@@ -167,7 +168,7 @@ def openai_quray(pompt):
     response = openai.Completion.create(model="text-davinci-003",
     prompt=pompt,
     temperature=0.7,
-    max_tokens=950,
+    max_tokens=2000,
     top_p=1.0,
     frequency_penalty=0.0,
     presence_penalty=0.0
@@ -547,6 +548,21 @@ def Speach():
 def BussinessPlan():
                         
                         if request.method == 'POST':
+                            query = request.form['text']
+                            print('requesting.......')
+                            pmpt = f''' Write a high level  business plan for:{query} . 
+                            '''
+                            openAIAnswer = openai_quray(pmpt)
+                            
+                            print(openAIAnswer)
+            
+                            print('for the result ...')
+                    
+                        return render_template('Bussinessplan.html', **locals())
+@app.route('/emailvalidate', methods=["GET", "POST"])
+def emailvalidate():
+                        
+                        if request.method == 'POST':
                             query = request.form['Text']
                             print('requesting.......')
                             pmpt = f''' Write a high level  business plan for:{query} . 
@@ -557,9 +573,15 @@ def BussinessPlan():
             
                             print('for the result ...')
                     
-                        return render_template('Bussiness-plan.html', **locals())
-
-
+                        return render_template('emailvalidate.html', **locals())
+@app.route('/validate', methods=['POST'])
+def validate():
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    domin = request.form['domin']
+    email = run(firstname, lastname, domin)
+    send = f'The delivarible Email Address of the person is {email}'
+    return render_template('emailvalidate.html', email=send)
 
 
 
